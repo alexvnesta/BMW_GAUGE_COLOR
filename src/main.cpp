@@ -1,21 +1,13 @@
-#include "DISPLAY/lcd.hpp"
-#include "SERIAL/serial.hpp"
-
-
-void setup(void) {
-  initSerial();
-  initDisplay();
-}
+#include "INITIALIZE/init.hpp"
+#include "SLEEP/sleep.hpp"
 
 void loop() {
 
   Serial.println("RUNNING MAIN LOOP!");
 
-  tft.fillScreen(ST77XX_BLUE);
-
-  delay(500);
-  tft.fillScreen(ST77XX_GREEN);
-  delay(500);
-
+  // 1 - parse can messages (FOR NON INTERRUPT MESSAGES)
+  // 2 - update the display
+  // 3 - check for device snooze? --- EVENTUALLY WILL SNOOZE IF SPECIFIC CAN MESSAGE
+  checkSnooze();
 }
 
