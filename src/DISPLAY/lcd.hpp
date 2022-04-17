@@ -9,7 +9,6 @@
 #include <SPI.h>
 #include <Adafruit_I2CDevice.h>
 
-
 //LCD PINS
 #define TFT_CS        6 // Hallowing display control pins: chip select
 #define TFT_RST       8 // Display reset

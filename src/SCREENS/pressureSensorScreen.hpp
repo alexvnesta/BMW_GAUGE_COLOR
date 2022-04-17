@@ -3,5 +3,6 @@
 
 #include "SENSORS/readSensor.hpp"
 
+void drawTestValue(void);
 
 #endif

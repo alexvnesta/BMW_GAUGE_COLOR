@@ -1,68 +1,62 @@
 #include "readSensor.hpp"
 
-class SensorClass {     // making a class that can be used for both of my sensors
-  public:            
-    int sensorPin;      // Pin assigned to sensor
-    int myNum;          // Attribute (int variable)
-    SensorClass() {     // Constructor to initialize the sensor when the object is created
+SensorClass::SensorClass(int sensorPin) {     // making a class that can be used for both of my sensors
       Serial.println("Initializing sensor...");
       initAnalogSensor(sensorPin);
       Serial.println("Init Done.");
-    }
-    float getBoostPressValue(int sensorPin = BOOSTPIN);
-    float getOilPressValue(int sensorPin = OILPIN);
-  private:
-    #define BUFFER 5 // Buffer size (number of readings to use in rolling Mean)
-    int data[BUFFER]; // Make an array of appropriate size for Buffer
+}
 
-    void initAnalogSensor(int sensorPin){
-        pinMode(sensorPin, INPUT);
-        // Fill buffer with initial data
+//    float getBoostPressValue(int sensorPin = BOOSTPIN);
+//    float getOilPressValue(int sensorPin = OILPIN);
+
+void SensorClass::initAnalogSensor(int sensorPin){
+    pinMode(sensorPin, INPUT);
+    // Fill buffer with initial data
+    int n = 0;
+    while (n < BUFFER) {
+        data[n] = analogRead(sensorPin);
+        n++;
+    }
+}
+
+float SensorClass::readAnalogSensor(int sensorPin) {
+    // Read new sensor reading, append to buffer and delete oldest reading
+    for (int n = (BUFFER - 1); n > 0; n--) {
+        data[n] = data[n - 1];    
+    }
+    data[0] = analogRead(sensorPin);
+
+    // Calculate Raw Mean & SD
+    float datasum = 0;
+    float diffsum = 0;
+    for (int n = 0; n < BUFFER; n++) {
+        datasum += data[n];
+    }
+    float mean = float(datasum / BUFFER);
+    for (int n = 0; n < BUFFER; n++) {
+        diffsum += ((data[n] - mean) * (data[n] - mean));
+    }
+    float sd = sqrt(diffsum / (BUFFER - 1));
+
+    // Recalculate Corrected Mean only using data within range +/- 1SD of Raw Mean
+    if (sd != 0) {      // Avoid divide by zero error if sd = 0
+        float newSum = 0; // Sum of readings within acceptable range
+        float newLen = 0; // Number of readings within acceptable range
         int n = 0;
-        while (n < BUFFER) {
-            data[n] = analogRead(sensorPin);
-            n++;
-        }
-    }
 
-    float readAnalogSensor(int sensorPin) {
-        // Read new sensor reading, append to buffer and delete oldest reading
-        for (int n = (BUFFER - 1); n > 0; n--) {
-            data[n] = data[n - 1];    
-        }
-        data[0] = analogRead(sensorPin);
-
-        // Calculate Raw Mean & SD
-        float datasum = 0;
-        float diffsum = 0;
-        for (int n = 0; n < BUFFER; n++) {
-            datasum += data[n];
-        }
-        float mean = float(datasum / BUFFER);
-        for (int n = 0; n < BUFFER; n++) {
-            diffsum += ((data[n] - mean) * (data[n] - mean));
-        }
-        float sd = sqrt(diffsum / (BUFFER - 1));
-
-        // Recalculate Corrected Mean only using data within range +/- 1SD of Raw Mean
-        if (sd != 0) {      // Avoid divide by zero error if sd = 0
-            float newSum = 0; // Sum of readings within acceptable range
-            float newLen = 0; // Number of readings within acceptable range
-            int n = 0;
-
-            while (n < BUFFER) { //While the current element is in the buffer
-                if ((data[n] < (mean + sd)) and (data[n] > (mean - sd))) { // if the current element is within the standard deviation
-                    newSum += data[n]; // add the data to the new sum
-                    newLen ++; // repeat for the next element
-                }
-            n++; // repeat for the next element
+        while (n < BUFFER) { //While the current element is in the buffer
+            if ((data[n] < (mean + sd)) and (data[n] > (mean - sd))) { // if the current element is within the standard deviation
+                newSum += data[n]; // add the data to the new sum
+                newLen ++; // repeat for the next element
             }
-        mean = newSum / newLen; // Corrected Mean
+        n++; // repeat for the next element
         }
-
-        return mean;
+    mean = newSum / newLen; // Corrected Mean
     }
-};
+
+    return mean;
+}
+
 
 float SensorClass::getOilPressValue(int sensorPin) {
     float meanSensorValue = readAnalogSensor(sensorPin);

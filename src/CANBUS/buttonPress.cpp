@@ -29,7 +29,7 @@ void parseCanInterruptedMessage(uint32_t id, const uint8_t message[], uint8_t me
 }
 
 int checkNumClicks(void){
-  static int max_delay = 800;
+  static unsigned long max_delay = 800;
   int returnVal = 0;
   Serial.print("before Adding to Counter");
   Serial.println(clickCounter);
