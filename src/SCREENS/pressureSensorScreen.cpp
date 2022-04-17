@@ -9,7 +9,7 @@ float oilPressure = boostSensor.getBoostPressValue();
 
 SensorClass testSensor(23);
 
-void drawTestValue(void){
+void displayPressureSensorScreen(void){
     float testSensorValue = testSensor.getBoostPressValue(23);
     tft.setCursor(0,0);
     tft.setTextColor(ST77XX_BLUE, ST77XX_BLACK);
@@ -17,4 +17,4 @@ void drawTestValue(void){
     tft.print(testSensorValue);
     tft.setCursor(40,40);
     tft.print(digitalRead(22));
-} 
+}
