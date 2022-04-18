@@ -1,6 +1,6 @@
 #include "readSensor.hpp"
 
-SensorClass::SensorClass(int sensorPin) {     // making a class that can be used for both of my sensors
+SensorClass::SensorClass(uint8_t sensorPin) {     // making a class that can be used for both of my sensors
       Serial.println("Initializing sensor...");
       initAnalogSensor(sensorPin);
       Serial.println("Init Done.");
@@ -9,7 +9,7 @@ SensorClass::SensorClass(int sensorPin) {     // making a class that can be used
 //    float getBoostPressValue(int sensorPin = BOOSTPIN);
 //    float getOilPressValue(int sensorPin = OILPIN);
 
-void SensorClass::initAnalogSensor(int sensorPin){
+void SensorClass::initAnalogSensor(uint8_t sensorPin){
     pinMode(sensorPin, INPUT);
     // Fill buffer with initial data
     int n = 0;
@@ -19,7 +19,7 @@ void SensorClass::initAnalogSensor(int sensorPin){
     }
 }
 
-float SensorClass::readAnalogSensor(int sensorPin) {
+float SensorClass::readAnalogSensor(uint8_t sensorPin) {
     // Read new sensor reading, append to buffer and delete oldest reading
     for (int n = (BUFFER - 1); n > 0; n--) {
         data[n] = data[n - 1];    
@@ -58,7 +58,7 @@ float SensorClass::readAnalogSensor(int sensorPin) {
 }
 
 
-float SensorClass::getOilPressValue(int sensorPin) {
+float SensorClass::getOilPressValue(uint8_t sensorPin) {
     float meanSensorValue = readAnalogSensor(sensorPin);
 /*
     Scale the sensor reading into range
@@ -93,7 +93,7 @@ float SensorClass::getOilPressValue(int sensorPin) {
     return ((meanSensorValue - 191) / .131);
 }
 
-float SensorClass::getBoostPressValue(int sensorPin) {
+float SensorClass::getBoostPressValue(uint8_t sensorPin) {
     float meanSensorValue = readAnalogSensor(sensorPin);
 
     /*

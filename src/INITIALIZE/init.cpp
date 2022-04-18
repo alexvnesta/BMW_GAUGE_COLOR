@@ -2,20 +2,26 @@
 
 
 #include "CANBUS/buttonPress.hpp"
-int numClicksTest = 0;
 
-void checkIfClick(void){
+unsigned volatile long lastClickTime = 0;
+volatile int clickCount = 0;
 
-    numClicksTest = checkNumClicks();
-
-    if (numClicksTest == 1){
-      tft.println("SINGLECLICK!!!");
-      advanceScreen();
-    }
-    if (numClicksTest == 2){
-      tft.println("DOUBLECLICK!!!!");
-    }
+void clickISR(void){
+  if (millis() - lastClickTime > 200){
+    lastClickTime = millis();
+    clickCount += 1;
+    Serial.println("BUTTON PRESSED!");
+  }
 }
+
+void checkClickCount(){
+  if (clickCount > 2){
+    clickCount = 0;
+  }
+  Serial.print("Number of clicks: ");
+  Serial.println(clickCount);
+}
+
 
 void setup(void) {
   initSerial();
@@ -24,6 +30,6 @@ void setup(void) {
 
   //TEMP PIN INIT
   pinMode(22, INPUT_PULLDOWN);
-  attachInterrupt(digitalPinToInterrupt(22), checkIfClick, RISING);
-
+  attachInterrupt(digitalPinToInterrupt(22), clickISR, HIGH);
+  //END ISR TEST
 }

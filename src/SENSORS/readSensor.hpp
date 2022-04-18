@@ -12,12 +12,12 @@ class SensorClass {     // making a class that can be used for both of my sensor
     int data[BUFFER]; // Make an array of appropriate size for Buffer
 
   public:            
-    int sensorPin;      // Pin assigned to sensor
-    SensorClass(int sensorPin); // Defining the constructor
-    void initAnalogSensor(int sensorPin);
-    float readAnalogSensor(int sensorPin);
-    float getBoostPressValue(int sensorPin = BOOSTPIN);
-    float getOilPressValue(int sensorPin = OILPIN);
+    uint8_t sensorPin;      // Pin assigned to sensor
+    SensorClass(uint8_t sensorPin); // Defining the constructor
+    void initAnalogSensor(uint8_t sensorPin);
+    float readAnalogSensor(uint8_t sensorPin);
+    float getBoostPressValue(uint8_t sensorPin = BOOSTPIN);
+    float getOilPressValue(uint8_t sensorPin = OILPIN);
 };
 
 #endif

@@ -5,12 +5,14 @@
 
 #include "CANBUS/buttonPress.hpp"
 
+#include "INITIALIZE/init.hpp"
+
 void loop() {
 
   Serial.println("RUNNING MAIN LOOP!");
 
-  //checkIfClick();
-
+  checkClickCount();
+  
   displayCurrentScreen();
 
   // 1 - parse can messages (FOR NON INTERRUPT MESSAGES)

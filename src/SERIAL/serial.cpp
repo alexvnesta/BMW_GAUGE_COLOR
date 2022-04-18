@@ -2,5 +2,5 @@
 
 void initSerial(void){
   Serial.begin(BUS_SPEED);
-  Serial.print(F("SERIAL INITIALIZED!!!"));
+  Serial.println(F("SERIAL INITIALIZED!!!"));
 }

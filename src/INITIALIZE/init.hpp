@@ -6,5 +6,8 @@
 #include "CANBUS/canInit.hpp"
 
 void setup(void);
+void checkClickCount(void);
+extern unsigned volatile long lastClickTime;
+extern volatile int clickCount;
 
 #endif
