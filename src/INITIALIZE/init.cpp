@@ -32,6 +32,7 @@ static unsigned long max_delay = 800;
       if ((clickCount == 1) && (millis() - lastClickTime >= max_delay)){
           clickCount = 0;
           Serial.println("***********************SINGLECLICK");
+          advanceScreen();
           //returnVal = 1;
           //lastClickTime = millis();
       }
