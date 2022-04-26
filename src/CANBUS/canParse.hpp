@@ -5,7 +5,7 @@
 
 void parseCanMessage(uint32_t id, const uint8_t message[], uint8_t messageLength);
 void parseCanInterruptedMessage(uint32_t id, const uint8_t message[], uint8_t messageLength);
-int checkNumClicks(void);
+//int checkNumClicks(void);
 
 extern  float voltage;
 extern  int canSpeed;

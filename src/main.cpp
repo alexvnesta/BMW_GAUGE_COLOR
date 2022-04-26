@@ -11,7 +11,7 @@ void loop() {
 
   Serial.println("RUNNING MAIN LOOP!");
 
-  checkClickCount();
+  checkNumClicks();
   
   displayCurrentScreen();
 

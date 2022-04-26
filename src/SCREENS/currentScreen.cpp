@@ -24,5 +24,4 @@ void advanceScreen(){
     currentScreenSelected += 1;
     tft.fillScreen(ST77XX_BLACK);
     tft.setCursor(0,0);
-
 }
