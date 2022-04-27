@@ -8,6 +8,13 @@
 #include <Adafruit_ST7789.h> // Hardware-specific library for ST7789
 #include <SPI.h>
 #include <Adafruit_I2CDevice.h>
+#include <Fonts/FreeSans24pt7b.h>
+
+// Fonts made with
+// https://rop.nl/truetype2gfx/
+#include "../assets/fonts/ostrich_sans_sans_medium20pt7b.h"
+#include "../assets/fonts/ostrich_sans_sans_condensed_light20pt7b.h"
+#include "../assets/fonts/Slimlines_MMKJ20pt7b.h"
 
 //LCD PINS
 #define TFT_CS        6 // Hallowing display control pins: chip select

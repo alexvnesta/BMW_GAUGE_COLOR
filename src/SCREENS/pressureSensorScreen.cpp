@@ -11,10 +11,13 @@ SensorClass testSensor(23);
 
 void displayPressureSensorScreen(void){
     float testSensorValue = testSensor.getBoostPressValue(23);
-    tft.setCursor(0,0);
+    tft.setTextSize(1);
+    tft.setCursor(0,60);
     tft.setTextColor(ST77XX_BLUE, ST77XX_BLACK);
-    tft.setTextSize(4);
+    tft.setTextSize(1);
     tft.print(testSensorValue);
-    tft.setCursor(40,40);
+    tft.setCursor(40,120);
     tft.print(digitalRead(22));
+        tft.fillScreen(ST77XX_BLACK);
+
 }

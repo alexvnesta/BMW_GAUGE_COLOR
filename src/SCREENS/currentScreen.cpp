@@ -3,6 +3,7 @@
 #include "DISPLAY/lcd.hpp"
 #include "logoScreen.hpp"
 #include "pressureSensorScreen.hpp"
+#include "multiGaugeScreen.hpp"
 
 int currentScreenSelected = 0;
 
@@ -12,9 +13,12 @@ void displayCurrentScreen(){
         displayLogoScreen();
         break;
         case 1:
-        displayPressureSensorScreen();
+        displayMultiGaugeScreen();
         break;
         case 2:
+        displayPressureSensorScreen();
+        break;
+        case 3:
         currentScreenSelected = 0;
         break;
     }
