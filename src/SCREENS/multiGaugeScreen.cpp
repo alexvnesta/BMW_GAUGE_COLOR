@@ -1,7 +1,10 @@
 #include "multiGaugeScreen.hpp"
 #include "DISPLAY/lcd.hpp"
-//// THIS WILL CONTAIN THE CODE TO DRAW THE READINGS FOR THE TWO 5V Pressure sensors!
 
+
+#define multiGaugeCanvasHeight 67.5
+#define multiGaugeCanvasWidth 60
+GFXcanvas1 multiGaugeCanvas(multiGaugeCanvasWidth, multiGaugeCanvasHeight);
 
 void displayMultiGaugeScreen(void){
     tft.setCursor(0,0);
@@ -9,24 +12,33 @@ void displayMultiGaugeScreen(void){
     tft.drawBitmap(120,0, gauge_logo_bitmap_1, gauge_logo_bitmap_width, gauge_logo_bitmap_height, ST77XX_RED);
     tft.drawBitmap(0,66, gauge_logo_bitmap_2, gauge_logo_bitmap_width, gauge_logo_bitmap_height, ST77XX_RED);
     tft.drawBitmap(120,66, gauge_logo_bitmap_3, gauge_logo_bitmap_width, gauge_logo_bitmap_height, ST77XX_RED);
-    tft.setTextColor(ST77XX_RED, ST77XX_BLACK);
-
-    tft.setFont(&Slimlines_MMKJ20pt7b);
-    tft.setTextSize(1);
     
+    multiGaugeCanvas.setTextSize(1);
+    multiGaugeCanvas.setFont(&Slimlines_MMKJ20pt7b);
+    multiGaugeCanvas.fillScreen(ST77XX_BLACK);
+
     // BOOST TEXT
-    tft.setCursor(65,40);
-    tft.print("-.4");
+    multiGaugeCanvas.setCursor(0,40);
+    multiGaugeCanvas.print(-.4,1); // Set decimal precision to 1 to prevent issues
+    tft.drawBitmap(65,0, multiGaugeCanvas.getBuffer(), multiGaugeCanvasWidth, multiGaugeCanvasHeight, ST77XX_RED, ST77XX_BLACK); // Copy to screen
+    multiGaugeCanvas.fillScreen(ST77XX_BLACK);
     
     // TORQUE TEXT
-    tft.setCursor(180,40);
-    tft.print("312");
-    
+    multiGaugeCanvas.setCursor(0,40);
+    multiGaugeCanvas.print(350);
+    tft.drawBitmap(180,0, multiGaugeCanvas.getBuffer(), multiGaugeCanvasWidth, multiGaugeCanvasHeight, ST77XX_RED, ST77XX_BLACK); // Copy to screen
+    multiGaugeCanvas.fillScreen(ST77XX_BLACK);
+
     // OIL PRESS TEXT
-    tft.setCursor(65,105);
-    tft.print("60");
+    multiGaugeCanvas.setCursor(10,40);
+    multiGaugeCanvas.print(60);
+    tft.drawBitmap(65,65, multiGaugeCanvas.getBuffer(), multiGaugeCanvasWidth, multiGaugeCanvasHeight, ST77XX_RED, ST77XX_BLACK); // Copy to screen
+    multiGaugeCanvas.fillScreen(ST77XX_BLACK);
 
     // COOLANT TEMP TEXT
-    tft.setCursor(180,105);
-    tft.print("212");
+    multiGaugeCanvas.setCursor(0,40);
+    multiGaugeCanvas.print(212);
+    tft.drawBitmap(180,65, multiGaugeCanvas.getBuffer(), multiGaugeCanvasWidth, multiGaugeCanvasHeight, ST77XX_RED, ST77XX_BLACK); // Copy to screen
+    multiGaugeCanvas.fillScreen(ST77XX_BLACK);
+
 }

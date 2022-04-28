@@ -1,7 +1,6 @@
 #ifndef LCD_HPP
 #define LCD_HPP
 
-
 //Includes REQUIRED FOR THE COLOR DISPLAY
 #include <Arduino.h>
 #include <Adafruit_GFX.h>    // Core graphics library
@@ -24,6 +23,7 @@
 
 //TFT display object
 extern Adafruit_ST7789 tft;
+//extern GFXcanvas1 canvas;
 
 //Functions
 void initDisplay(void);

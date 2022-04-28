@@ -4,6 +4,7 @@
 #include "logoScreen.hpp"
 #include "pressureSensorScreen.hpp"
 #include "multiGaugeScreen.hpp"
+#include "batteryStatusScreen.hpp"
 
 int currentScreenSelected = 0;
 
@@ -19,6 +20,9 @@ void displayCurrentScreen(){
         displayPressureSensorScreen();
         break;
         case 3:
+        displayBatteryStatusScreen();
+        break;        
+        case 4:
         currentScreenSelected = 0;
         break;
     }
