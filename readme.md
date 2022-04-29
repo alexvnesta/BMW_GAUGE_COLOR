@@ -23,19 +23,19 @@ New file structure:
 main.cpp
 
 SCREENS  
-	boot.cpp  
-	multi.cpp  
-	battery.cpp  
-	accelerometer.cpp  
-	power.cpp  
-	zeroSixty.cpp  
+- boot.cpp  
+- multi.cpp  
+- battery.cpp  
+- accelerometer.cpp  
+- power.cpp  
+- zeroSixty.cpp  
 CANBUS  
-	init.cpp  
-	parse.cpp  
+- init.cpp  
+- parse.cpp  
 SENSORS  
-	boost.cpp  
-	oil.cpp  
-	accelerometer.cpp  
-	smoothing.cpp  
+- boost.cpp  
+- oil.cpp  
+- accelerometer.cpp  
+- smoothing.cpp  
 DISPLAY  
-	lcd.cpp  
+- lcd.cpp  
