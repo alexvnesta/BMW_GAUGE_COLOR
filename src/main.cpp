@@ -11,13 +11,20 @@ void loop() {
 
   Serial.println("RUNNING MAIN LOOP!");
 
-  checkNumClicks();
-  
+  // DRAW SCREEN UPDATE  
   displayCurrentScreen();
+  
+  // PARSE CAN MESSAGES
+  can1.events(); //Need to check can events in buffer.
+  readCanMessages();
 
-  // 1 - parse can messages (FOR NON INTERRUPT MESSAGES)
-  // 2 - update the display
-  // 3 - check for device snooze? --- EVENTUALLY WILL SNOOZE IF SPECIFIC CAN MESSAGE
+  // CHECK FOR BUTTON INPUT
+  checkNumClicks();
+
+  // Adjust brightness
+  analogWrite(9, dimmer);
+ 
+  //check if car is asleep?
   //checkSnooze();
 }
 

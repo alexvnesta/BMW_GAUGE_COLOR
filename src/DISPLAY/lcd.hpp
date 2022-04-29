@@ -21,6 +21,9 @@
 #define TFT_DC        7 // Display data/command select
 #define TFT_BACKLIGHT  9 // Display backlight pin
 
+#define ST77XX_AMBER 0xF9C0
+#define ST77XX_BLKAMBER 0x4020
+
 //TFT display object
 extern Adafruit_ST7789 tft;
 //extern GFXcanvas1 canvas;

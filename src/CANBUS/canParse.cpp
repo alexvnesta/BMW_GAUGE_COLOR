@@ -17,7 +17,7 @@ float torquelbf = 0;
 int rpm = 0; 
 float coolantC = 0;
 float coolantF = 0;
-int dimmer = 0; 
+int dimmer = 254; 
 
 void parseCanMessage(uint32_t id, const uint8_t message[], uint8_t messageLength){
   if (id == BATTERY_ID){
@@ -64,6 +64,7 @@ void parseCanMessage(uint32_t id, const uint8_t message[], uint8_t messageLength
     */
 
     volatile int dimmermsg = message[0];
+    /*
     if (dimmermsg == 0) dimmer = 0;
     else if (dimmermsg == 28) dimmer = 1;
     else if (dimmermsg == 56) dimmer = 2;
@@ -75,6 +76,10 @@ void parseCanMessage(uint32_t id, const uint8_t message[], uint8_t messageLength
     else if (dimmermsg == 225) dimmer = 8;
     else if (dimmermsg == 253) dimmer = 9;
     else if (dimmermsg == 254) dimmer = 10;
+    */
+
+    dimmer = (254 - dimmermsg);
+    
     Serial.print("Dimmer: ");
     Serial.println(dimmer);
   }

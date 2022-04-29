@@ -30,6 +30,6 @@ void displayCurrentScreen(){
 }
 void advanceScreen(){
     currentScreenSelected += 1;
-    tft.fillScreen(ST77XX_BLACK);
+    tft.fillScreen(ST77XX_BLKAMBER);
     tft.setCursor(0,0);
 }
