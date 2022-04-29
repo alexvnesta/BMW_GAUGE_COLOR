@@ -6,7 +6,8 @@ This version will feature a high-res color TFT display!
 TODO:  
 - [ ] optimize screen referesh  
 - [ ] find a use for double click and hold click  
-
+- [ ] adjust screen brightness
+- [ ] custom red-orange colors
 
 New ideas to be implemented in this version:  
 - [ ] Go to sleep when can bus sends sleep signal  
