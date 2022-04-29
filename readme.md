@@ -4,12 +4,12 @@ This is the latest revision of my gauges for my e90 BMW.
 This version will feature a high-res color TFT display!  
 
 TODO:  
-- [] optimize screen referesh  
-- [] find a use for double click and hold click  
+- [ ] optimize screen referesh  
+- [ ] find a use for double click and hold click  
 
 
 New ideas to be implemented in this version:  
-- [] Go to sleep when can bus sends sleep signal  
+- [ ] Go to sleep when can bus sends sleep signal  
 - [x] battery voltage display  
 - [x] reject outlier sensor readings  
 - [x] COLOR?!?!?!  
