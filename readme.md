@@ -29,13 +29,16 @@ SCREENS
 - accelerometer.cpp  
 - power.cpp  
 - zeroSixty.cpp  
+
 CANBUS  
 - init.cpp  
 - parse.cpp  
+
 SENSORS  
 - boost.cpp  
 - oil.cpp  
 - accelerometer.cpp  
 - smoothing.cpp  
+
 DISPLAY  
 - lcd.cpp  
