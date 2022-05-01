@@ -1,17 +1,14 @@
 #include "currentScreen.hpp"
 
-#include "DISPLAY/lcd.hpp"
-#include "logoScreen.hpp"
-#include "pressureSensorScreen.hpp"
-#include "multiGaugeScreen.hpp"
-#include "batteryStatusScreen.hpp"
+
 
 int currentScreenSelected = 0;
 
 void displayCurrentScreen(){
     switch (currentScreenSelected){
         case 0:
-        displayLogoScreen();
+        displayTorqueHorsepowerScreen();
+        //displayLogoScreen();
         break;
         case 1:
         displayMultiGaugeScreen();
@@ -21,8 +18,11 @@ void displayCurrentScreen(){
         break;
         case 3:
         displayBatteryStatusScreen();
-        break;        
+        break;
         case 4:
+        displayTorqueHorsepowerScreen();
+        break;        
+        case 5:
         currentScreenSelected = 0;
         break;
     }
