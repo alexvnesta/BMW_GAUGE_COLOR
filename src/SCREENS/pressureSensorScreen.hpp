@@ -6,6 +6,9 @@
 extern float boostPressure;
 extern float oilPressure;
 
+extern SensorClass boostSensor;
+extern SensorClass oilSensor;
+
 void displayPressureSensorScreen(void);
 
 #endif

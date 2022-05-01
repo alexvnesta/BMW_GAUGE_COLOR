@@ -14,7 +14,7 @@ GFXcanvas1 pressureSensorCanvas(120, 67.5);
 void displayPressureSensorScreen(void){
 
     boostPressure = boostSensor.getBoostPressValue();
-    oilPressure = oilSensor.getBoostPressValue();
+    oilPressure = oilSensor.getOilPressValue();
 
     pressureSensorCanvas.setTextSize(1);
     pressureSensorCanvas.setFont(&Slimlines_MMKJ20pt7b);

@@ -6,6 +6,7 @@
 #define multiGaugeCanvasWidth 60
 GFXcanvas1 multiGaugeCanvas(multiGaugeCanvasWidth, multiGaugeCanvasHeight);
 
+
 void displayMultiGaugeScreen(void){
     tft.setCursor(0,0);
     tft.drawBitmap(0,0, gauge_logo_bitmap_4, gauge_logo_bitmap_width, gauge_logo_bitmap_height, ST77XX_AMBER);
@@ -16,6 +17,9 @@ void displayMultiGaugeScreen(void){
     multiGaugeCanvas.setTextSize(1);
     multiGaugeCanvas.setFont(&Slimlines_MMKJ20pt7b);
     multiGaugeCanvas.fillScreen(ST77XX_BLACK);
+
+    boostPressure = boostSensor.getBoostPressValue();
+    oilPressure = oilSensor.getOilPressValue();
 
     // BOOST TEXT
     multiGaugeCanvas.setCursor(0,40);
