@@ -6,15 +6,15 @@
 SensorClass boostSensor(BOOSTPIN);
 SensorClass oilSensor(OILPIN);
 
-float boostPressure = boostSensor.getBoostPressValue();
-float oilPressure = boostSensor.getBoostPressValue();
+float boostPressure = 0;
+float oilPressure = 0;
 
 GFXcanvas1 pressureSensorCanvas(120, 67.5);
 
 void displayPressureSensorScreen(void){
 
     boostPressure = boostSensor.getBoostPressValue();
-    oilPressure = boostSensor.getBoostPressValue();
+    oilPressure = oilSensor.getBoostPressValue();
 
     pressureSensorCanvas.setTextSize(1);
     pressureSensorCanvas.setFont(&Slimlines_MMKJ20pt7b);

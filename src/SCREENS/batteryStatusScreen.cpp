@@ -17,7 +17,7 @@ void displayBatteryStatusScreen(void){
     // CHARGE VALUE
     batteryCanvas.setCursor(0,40);
     batteryCanvas.print(voltage,2); // Set decimal precision to 1 to prevent issues
-    tft.drawBitmap(120,35, batteryCanvas.getBuffer(), batteryCanvasWidth, batteryCanvasHeight, ST77XX_AMBER); // Copy to screen
-    //batteryCanvas.fillScreen(ST77XX_BLKAMBER);
+    tft.drawBitmap(120,35, batteryCanvas.getBuffer(), batteryCanvasWidth, batteryCanvasHeight, ST77XX_AMBER, ST77XX_BLKAMBER); // Copy to screen
+    batteryCanvas.fillScreen(ST77XX_BLACK);
 
 }

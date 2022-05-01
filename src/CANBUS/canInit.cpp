@@ -1,11 +1,14 @@
 #include <Arduino.h>
 #include "canInit.hpp"
 #include "canParse.hpp"
+#include "SERIAL/serial.hpp"
+#include "buttonPress.hpp"
 
 // New can object using can bus 0 on teensy.
 FlexCAN_T4<CAN0, RX_SIZE_256, TX_SIZE_16> can1;
 
 CAN_message_t canMsg;
+CAN_message_t msgInt;
 
 void initCanT4(void){
 
@@ -26,18 +29,11 @@ void initCanT4(void){
   can1.setMBFilter(REJECT_ALL);
 
   // MAILBOX 0 Acts as a hardware interrupt (For button presses ONLY)
-  can1.enableMBInterrupt(MB0);
+  can1.enableMBInterrupt(MB0, true);
 
   //Every time there is a new message, sniff the packet
   can1.onReceive(MB0,canInterruptSniff);
-  can1.onReceive(MB1,canSniff);
-  can1.onReceive(MB2,canSniff);
-  can1.onReceive(MB3,canSniff);
-  can1.onReceive(MB4,canSniff);
-  can1.onReceive(MB5,canSniff);
-  can1.onReceive(MB6,canSniff);
-  can1.onReceive(MB7,canSniff);
-
+  can1.onReceive(canSniff);
   
   can1.setMBFilter(MB0, 0x1D6); // Hardware interrupt, steering wheel button
   can1.setMBFilter(MB1, 0x3B4); // Battery voltage and charge status
@@ -48,30 +44,18 @@ void initCanT4(void){
   can1.setMBFilter(MB6, 0x202); // Dashboard brightness
   can1.setMBFilter(MB6, 0x130); // Ignition Status
 
-  can1.distribute();
+  can1.mailboxStatus();
+  //can1.distribute();
 
 }
 
 void canSniff(const CAN_message_t &msg) {
-/*
-  Serial.print("MB "); Serial.print(msg.mb);
-  Serial.print("  OVERRUN: "); Serial.print(msg.flags.overrun);
-  Serial.print("  LEN: "); Serial.print(msg.len);
-  Serial.print(" EXT: "); Serial.print(msg.flags.extended);
-  Serial.print(" TS: "); Serial.print(msg.timestamp);
-  Serial.print(" ID: "); Serial.print(msg.id, HEX);
-  Serial.print(" Buffer: ");
- 
-  for ( uint8_t i = 0; i < msg.len; i++ ) {
-    Serial.print(msg.buf[i], HEX); Serial.print(" ");
-  } Serial.println();
-*/
-  
   parseCanMessage(msg.id, msg.buf, msg.len);
 }
 
 void readCanMessages(){
-
+  // Use this to read messages in the main loop
+  Serial.println("ATTEMPTING TO READ CAN MSG");
   if (can1.read(canMsg) ) {
     /*
     Serial.print("CAN1 "); 
@@ -85,21 +69,30 @@ void readCanMessages(){
     }
     Serial.print("  TS: "); Serial.println(canMsg.timestamp);
     */
-
     parseCanMessage(canMsg.id, canMsg.buf, canMsg.len);
   }
 
 }
 
-void canInterruptSniff(const CAN_message_t &msg) {
-   parseCanMessage(msg.id, msg.buf, msg.len);
+void canInterruptSniff(const CAN_message_t &msgInt) {
+  
+  //parseCanInterruptedMessage(canMsg.id, canMsg.buf, canMsg.len);
+  /*
+  Serial.println("INTERRUPTSNIFF*********************************");
+  
+    Serial.print("INTERRUPTED CAN1 "); 
+    Serial.print("MB: "); Serial.print(msgInt.mb);
+    Serial.print("  ID: 0x"); Serial.print(msgInt.id, HEX );
+    Serial.print("  EXT: "); Serial.print(msgInt.flags.extended );
+    Serial.print("  LEN: "); Serial.print(msgInt.len);
+    Serial.print(" DATA: ");
+    for ( uint8_t i = 0; i < 8; i++ ) {
+      Serial.print(msgInt.buf[i]); Serial.print(" ");
+    }
+    Serial.print("  TS: "); Serial.println(msgInt.timestamp);
+
+  Serial.println("END READ INTERRUPT CAN MSG");
+  */
+  parseCanInterruptedMessage(msgInt.id, msgInt.buf, msgInt.len);
+
 }
-
-void readCanInterruptMessages(){
-
-  if (can1.read(canMsg) ) {
-    parseCanInterruptedMessage(canMsg.id, canMsg.buf, canMsg.len);
-  }
-
-}
-

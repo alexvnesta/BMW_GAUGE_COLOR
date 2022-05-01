@@ -9,7 +9,6 @@ void canSniff(const CAN_message_t &msg);
 void readCanMessages();
 
 // The iterrupt functions are only for the steering wheel controls
-void canInterruptSniff(const CAN_message_t &msg);
-void readCanInterruptMessages();
+void canInterruptSniff(const CAN_message_t &msgInt);
 
 #endif

@@ -25,6 +25,6 @@ void loop() {
   analogWrite(9, dimmer);
  
   //check if car is asleep?
-  //checkSnooze();
+  checkSnooze();
 }
 

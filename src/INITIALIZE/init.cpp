@@ -2,8 +2,8 @@
 #include "CANBUS/buttonPress.hpp"
 
 
-unsigned volatile long lastClickTime = 0;
-volatile int clickCount = 0;
+//unsigned volatile long lastClickTime = 0;
+//volatile int clickCount = 0;
 
 void clickISR(void){
   if (millis() - lastClickTime > 200){
@@ -43,6 +43,7 @@ static unsigned long max_delay = 800;
       if (clickCount >= 3){
         Serial.println("*****************HOLD************************");
         clickCount = 0;
+        _reboot_Teensyduino_();
       }
   //clickCount = 0;
 }
@@ -52,6 +53,7 @@ void setup(void) {
   initSerial();
   initDisplay();
   initCanT4();
+  dimmer = 255;
 
   //TEMP PIN INIT
   pinMode(22, INPUT_PULLDOWN);
