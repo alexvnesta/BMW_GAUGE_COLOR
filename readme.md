@@ -5,6 +5,7 @@ This version will feature a high-res color TFT display!
 
 TODO:  
 - [ ] Make cutom image assents for speed, RPM, horsepower
+- [ ] Flash Max boost/torque for 8 seconds above xx value
 - [ ] Go to sleep when can bus sends sleep signal  
 
 
