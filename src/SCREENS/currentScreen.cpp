@@ -6,6 +6,7 @@ void displayCurrentScreen(){
     switch (currentScreenSelected){
         case 0:
         displayZeroSixtyScreen();
+        //logoTimer = millis();
         //displayLogoScreen();
         break;
         case 1:
@@ -24,6 +25,9 @@ void displayCurrentScreen(){
         displaySpeedRpmScreen();
         break;
         case 6:
+        displayZeroSixtyScreen();
+        break;    
+        case 7:
         currentScreenSelected = 0;
         break;
     }
@@ -42,6 +46,8 @@ void jumpMultiGauge(){
 }
 
 void resetScreen(){
-
+    if (currentScreenSelected == 6){
+        resetZeroSixtyScreen();
+    }
 
 }

@@ -4,6 +4,7 @@
 // base10 values for device IDs
 static uint32_t BATTERY_ID = 948; //3B4 HEX
 static uint32_t SPEED_ID = 436; //1B4 HEX
+//static uint32_t SPEED_ID = 436; //1B4 HEX
 static uint32_t TORQUE_ID = 168; //0A8
 static uint32_t RPM_ID = 170; //0AA
 static uint32_t COOLANT_ID = 464; //1D0
