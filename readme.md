@@ -4,13 +4,16 @@ This is the latest revision of my gauges for my e90 BMW.
 This version will feature a high-res color TFT display!  
 
 TODO:  
+- [ ] Make cutom image assents for speed, RPM, horsepower
+- [ ] Flash Max boost/torque for 8 seconds above xx value
 - [ ] Go to sleep when can bus sends sleep signal  
-- [ ] find a use for double click and hold click  
-- [ ] zero to sixty timer
-- [ ] mph and rpms for fun?
+
 
 
 New ideas to be implemented in this version:  
+- [x] find a use for double click and hold click  
+- [x] zero to sixty timer
+- [x] mph and rpms for fun?
 - [x] optimize screen referesh  
 - [x] adjust screen brightness
 - [x] custom red-orange colors
