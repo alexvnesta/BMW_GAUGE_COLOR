@@ -13,42 +13,6 @@ void clickISR(void){
   }
 }
 
-
-void checkNumClicks(void){
-static unsigned long max_delay = 800;
-
-      Serial.println("");
-      Serial.print("internal Fn click Counter: ");
-      Serial.println(clickCount);
-
-      while((millis() - lastClickTime < max_delay) && clickCount == 1){
-          if (clickCount >= 2){
-            //returnVal = 2;
-            clickCount = 0;
-            Serial.println("DOUBLECLICK************************");
-            break;
-            }
-      }
-      if ((clickCount == 1) && (millis() - lastClickTime >= max_delay)){
-          clickCount = 0;
-          Serial.println("***********************SINGLECLICK");
-          advanceScreen();
-          //returnVal = 1;
-          //lastClickTime = millis();
-      }
-      if (clickCount == 2){
-        Serial.println("DOUBLECLICK************************");
-        clickCount = 0;
-      }
-      if (clickCount >= 3){
-        Serial.println("*****************HOLD************************");
-        clickCount = 0;
-        _reboot_Teensyduino_();
-      }
-  //clickCount = 0;
-}
-
-
 void setup(void) {
   initSerial();
   initDisplay();

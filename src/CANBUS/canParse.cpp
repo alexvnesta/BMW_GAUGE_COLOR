@@ -11,10 +11,10 @@ static uint32_t DASHLIGHT_ID = 514; //202
 
 // Initialize variables as volatile
 float voltage = 0;
-int canSpeed = 0;
+float canSpeed = 0;
 float torquenm = 0;
 float torquelbf = 0;
-int rpm = 0; 
+float rpm = 0; 
 float coolantC = 0;
 float coolantF = 0;
 int dimmer = 254; 

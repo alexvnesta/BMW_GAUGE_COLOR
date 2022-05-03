@@ -6,5 +6,4 @@
 #include "CANBUS/canInit.hpp"
 
 void setup(void);
-void checkNumClicks(void);
 #endif

@@ -1,6 +1,5 @@
 #include "multiGaugeScreen.hpp"
 
-#include "pressureSensorScreen.hpp"
 
 #define multiGaugeCanvasHeight 55
 #define multiGaugeCanvasWidth 60

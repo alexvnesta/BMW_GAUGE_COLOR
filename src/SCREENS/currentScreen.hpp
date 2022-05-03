@@ -7,9 +7,13 @@
 #include "multiGaugeScreen.hpp"
 #include "batteryStatusScreen.hpp"
 #include "TorqueHorseScreen.hpp"
-
+#include "speedRpmScreen.hpp"
+#include "zeroSixtyScreen.hpp"
 
 void displayCurrentScreen();
 void advanceScreen();
+
+void jumpMultiGauge();
+void resetScreen();
 
 #endif

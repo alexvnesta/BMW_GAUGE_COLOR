@@ -1,5 +1,5 @@
 #include "multiGaugeScreen.hpp"
-#include "DISPLAY/lcd.hpp"
+
 //// THIS WILL CONTAIN THE CODE TO DRAW THE READINGS FOR THE TWO 5V Pressure sensors!
 
 #define batteryCanvasHeight 67.5
