@@ -5,33 +5,29 @@ int currentScreenSelected = 0;
 void displayCurrentScreen(){
     switch (currentScreenSelected){
         case 0:
-        //displayZeroSixtyScreen();
-        //logoTimer = millis();
-        //displayLogoScreen();
-                displayMultiGaugeScreen();
-
-        break;
+            displayLogoScreen();
+            break;
         case 1:
-        displayMultiGaugeScreen();
-        break;
+            displayMultiGaugeScreen();
+            break;
         case 2:
-        displayPressureSensorScreen();
-        break;
+            displayPressureSensorScreen();
+            break;
         case 3:
-        displayBatteryStatusScreen();
-        break;
+            displayBatteryStatusScreen();
+            break;
         case 4:
-        displayTorqueHorsepowerScreen();
-        break;        
+            displayTorqueHorsepowerScreen();
+            break;        
         case 5:
-        displaySpeedRpmScreen();
-        break;
+            displaySpeedRpmScreen();
+            break;
         case 6:
-        displayZeroSixtyScreen();
-        break;    
+            displayZeroSixtyScreen();
+            break;    
         case 7:
-        currentScreenSelected = 0;
-        break;
+            currentScreenSelected = 0;
+            break;
     }
 
 }
