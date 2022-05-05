@@ -5,9 +5,11 @@ int currentScreenSelected = 0;
 void displayCurrentScreen(){
     switch (currentScreenSelected){
         case 0:
-        displayZeroSixtyScreen();
+        //displayZeroSixtyScreen();
         //logoTimer = millis();
         //displayLogoScreen();
+                displayMultiGaugeScreen();
+
         break;
         case 1:
         displayMultiGaugeScreen();

@@ -25,8 +25,8 @@ void displaySpeedRpmScreen(void){
     }
 
     // DRAW IMAGES FIRST
-    tft.drawBitmap(0,0, gauge_logo_bitmap_2, gauge_logo_bitmap_width, gauge_logo_bitmap_height, ST77XX_AMBER);
-    tft.drawBitmap(0,66, gauge_logo_bitmap_2, gauge_logo_bitmap_width, gauge_logo_bitmap_height, ST77XX_AMBER);
+    tft.drawBitmap(0,0, other_images_Racing_Flags_Clipart_Icon, gauge_logo_bitmap_width, gauge_logo_bitmap_height, ST77XX_AMBER);
+    tft.drawBitmap(0,66, other_images_rpm_speed_vector_logo_graphic_modern_abstract_174165391, gauge_logo_bitmap_width, gauge_logo_bitmap_height, ST77XX_AMBER);
 
 
     speedRpmCanvas.setTextSize(1);

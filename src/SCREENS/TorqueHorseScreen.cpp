@@ -29,7 +29,7 @@ void displayTorqueHorsepowerScreen(void){
 
     // DRAW IMAGES FIRST
     tft.drawBitmap(0,0, gauge_logo_bitmap_1, gauge_logo_bitmap_width, gauge_logo_bitmap_height, ST77XX_AMBER);
-    tft.drawBitmap(0,66, gauge_logo_bitmap_1, gauge_logo_bitmap_width, gauge_logo_bitmap_height, ST77XX_AMBER);
+    tft.drawBitmap(0,66, other_images_11ec8c5b8293f8a475da2dc6da661c08__horse_logo_running_horses, gauge_logo_bitmap_width, gauge_logo_bitmap_height, ST77XX_AMBER);
 
 
     torqueHorsepowerCanvas.setTextSize(1);
