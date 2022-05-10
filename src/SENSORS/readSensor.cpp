@@ -89,8 +89,8 @@ float SensorClass::getOilPressValue(uint8_t sensorPin) {
     Serial.println (meanSensorValue);
 
     //return ((mOil - 102) / 0.0819);
-    //return ((mOil - 150) / ((1500 - 150) / (10000)));
-    return ((meanSensorValue - 191) / .131);
+    //return ((meanSensorValue - 150) / ((1500 - 150) / (10000)));
+    return ((meanSensorValue - 191) / .131)/100;
 }
 
 float SensorClass::getBoostPressValue(uint8_t sensorPin) {
@@ -125,5 +125,5 @@ float SensorClass::getBoostPressValue(uint8_t sensorPin) {
 
     //return ((boostnumberraw - 102) / 0.1356);
     //return ((boostnumberraw - 150) / ((1600 - 150) / (6000)));
-    return ((meanSensorValue - 160) / .241);
+    return ((meanSensorValue - 160) / .241)/100;
 }

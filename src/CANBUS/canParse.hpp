@@ -5,9 +5,8 @@
 
 void parseCanMessage(uint32_t id, const uint8_t message[], uint8_t messageLength);
 void parseCanInterruptedMessage(uint32_t id, const uint8_t message[], uint8_t messageLength);
-//int checkNumClicks(void);
 
-extern  float voltage;
+extern  double voltage;
 extern  float canSpeed;
 extern  float torquenm;
 extern  float torquelbf;
@@ -15,5 +14,7 @@ extern  float rpm;
 extern  float coolantC;
 extern  float coolantF;
 extern  int dimmer;
+extern  int ignition_status;
+
 
 #endif

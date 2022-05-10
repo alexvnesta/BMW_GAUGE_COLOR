@@ -132,11 +132,17 @@ void displayMultiGaugeScreen(void){
     multiGaugeCanvas.setCursor(0,40);
     if (shouldFlash[1] == true){
         if (flashState[1] == true){
-            multiGaugeCanvas.print(torqueMax);
+            multiGaugeCanvas.print((int)torqueMax);
         }
     }
     else if (shouldFlash[1] == false){
-        multiGaugeCanvas.print(torquelbf);
+        if (torquelbf >=100){
+            multiGaugeCanvas.print((int)torquelbf);
+
+        }
+        else{
+            multiGaugeCanvas.print(torquelbf,1);
+        }
     }
     tft.drawBitmap(180,0, multiGaugeCanvas.getBuffer(), multiGaugeCanvasWidth, multiGaugeCanvasHeight, ST77XX_AMBER, ST77XX_BLKAMBER); // Copy to screen
     multiGaugeCanvas.fillScreen(ST77XX_BLACK);
@@ -145,11 +151,11 @@ void displayMultiGaugeScreen(void){
     multiGaugeCanvas.setCursor(10,40);
     if (shouldFlash[2] == true){
         if (flashState[2] == true){
-        multiGaugeCanvas.print(oilPressure);
+        multiGaugeCanvas.print((int)oilPressure);
         }
     }
     else if (shouldFlash[2] == false){
-        multiGaugeCanvas.print(oilPressure);
+        multiGaugeCanvas.print((int)oilPressure);
     }
     tft.drawBitmap(62,65, multiGaugeCanvas.getBuffer(), multiGaugeCanvasWidth, multiGaugeCanvasHeight, ST77XX_AMBER, ST77XX_BLKAMBER); // Copy to screen
     multiGaugeCanvas.fillScreen(ST77XX_BLACK);
@@ -158,11 +164,11 @@ void displayMultiGaugeScreen(void){
     multiGaugeCanvas.setCursor(0,40);
     if (shouldFlash[3] == true){
         if (flashState[3] == true){
-        multiGaugeCanvas.print(coolantF);
+        multiGaugeCanvas.print((int)coolantF);
         }
     }
     else if (shouldFlash[3] == false){
-        multiGaugeCanvas.print(coolantF);
+        multiGaugeCanvas.print((int)coolantF);
     }
     tft.drawBitmap(180,65, multiGaugeCanvas.getBuffer(), multiGaugeCanvasWidth, multiGaugeCanvasHeight, ST77XX_AMBER, ST77XX_BLKAMBER); // Copy to screen
     multiGaugeCanvas.fillScreen(ST77XX_BLACK);

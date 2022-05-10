@@ -2,7 +2,7 @@
 
 // STATE CANVAS
 #define zeroSixtyCanvasHeightA 60
-#define zeroSixtyCanvasWidthA 80
+#define zeroSixtyCanvasWidthA 100
 GFXcanvas1 zeroSixtyCanvasA(zeroSixtyCanvasWidthA, zeroSixtyCanvasHeightA);
 
 // MPH LOGO CANVAS
@@ -63,25 +63,25 @@ void displayZeroSixtyScreen(void){
     
     // TIME BREAKS
     zeroSixtyCanvasD.setCursor(0,18);
-    zeroSixtyCanvasD.print(zeroSixtyAccelTime - zeroSixtyAccelTimes[0]); // start - 10
+    zeroSixtyCanvasD.print((zeroSixtyAccelTime - zeroSixtyAccelTimes[0])/1000); // start - 10
     zeroSixtyCanvasD.print("s");
     tft.drawBitmap(190,0, zeroSixtyCanvasD.getBuffer(), zeroSixtyCanvasWidthD, zeroSixtyCanvasHeightD, ST77XX_AMBER, ST77XX_BLKAMBER); // Copy to screen
     zeroSixtyCanvasD.fillScreen(ST77XX_BLACK);
 
     zeroSixtyCanvasD.setCursor(0,18);
-    zeroSixtyCanvasD.print(zeroSixtyAccelTime - zeroSixtyAccelTimes[1]); // start - 30
+    zeroSixtyCanvasD.print((zeroSixtyAccelTime - zeroSixtyAccelTimes[1])/1000); // start - 30
     zeroSixtyCanvasD.print("s");
     tft.drawBitmap(190,33.75, zeroSixtyCanvasD.getBuffer(), zeroSixtyCanvasWidthD, zeroSixtyCanvasHeightD, ST77XX_AMBER, ST77XX_BLKAMBER); // Copy to screen
     zeroSixtyCanvasD.fillScreen(ST77XX_BLACK);
 
     zeroSixtyCanvasD.setCursor(0,18);
-    zeroSixtyCanvasD.print(zeroSixtyBrakeTimes[2] - zeroSixtyBrakeTimes[3]); // 10 mph time - 0
+    zeroSixtyCanvasD.print((zeroSixtyBrakeTimes[2] - zeroSixtyBrakeTimes[3])/1000); // 10 mph time - 0
     zeroSixtyCanvasD.print("s");
     tft.drawBitmap(190,67.5, zeroSixtyCanvasD.getBuffer(), zeroSixtyCanvasWidthD, zeroSixtyCanvasHeightD, ST77XX_AMBER, ST77XX_BLKAMBER); // Copy to screen
     zeroSixtyCanvasD.fillScreen(ST77XX_BLACK);
 
     zeroSixtyCanvasD.setCursor(0,18);
-    zeroSixtyCanvasD.print(zeroSixtyAccelTime - zeroSixtyAccelTimes[2]); // start - 60
+    zeroSixtyCanvasD.print((zeroSixtyAccelTime - zeroSixtyAccelTimes[2])/1000); // start - 60
     zeroSixtyCanvasD.print("s");
     tft.drawBitmap(190,101, zeroSixtyCanvasD.getBuffer(), zeroSixtyCanvasWidthD, zeroSixtyCanvasHeightD, ST77XX_AMBER, ST77XX_BLKAMBER); // Copy to screen
     zeroSixtyCanvasD.fillScreen(ST77XX_BLACK);

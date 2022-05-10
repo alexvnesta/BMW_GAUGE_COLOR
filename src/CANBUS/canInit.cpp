@@ -42,7 +42,7 @@ void initCanT4(void){
   can1.setMBFilter(MB4, 0x0AA); // Engine RPM and Throttle position
   can1.setMBFilter(MB5, 0x1D0); // Coolant temp
   can1.setMBFilter(MB6, 0x202); // Dashboard brightness
-  can1.setMBFilter(MB6, 0x130); // Ignition Status
+  can1.setMBFilter(MB7, 0x130); // Ignition Status
 
   can1.mailboxStatus();
   //can1.distribute();

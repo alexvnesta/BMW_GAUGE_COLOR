@@ -1,6 +1,7 @@
+#include <Arduino.h>
+#include <SPI.h>
 #include "INITIALIZE/init.hpp"
 #include "SLEEP/sleep.hpp"
-#include <Arduino.h>
 #include "SCREENS/currentScreen.hpp"
 
 #include "CANBUS/buttonPress.hpp"
@@ -23,7 +24,8 @@ void loop() {
 
   // Adjust brightness
   analogWrite(9, dimmer);
- 
+  //analogWrite(9, 1);
+
   //check if car is asleep?
   checkSnooze();
 }

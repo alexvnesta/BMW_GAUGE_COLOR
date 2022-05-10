@@ -8,5 +8,6 @@ void initDisplay(void){
   tft.init(135, 240);           // Init ST7789 240x135
   tft.setRotation(1);           // Rotate 90 degrees
   tft.fillScreen(ST77XX_BLKAMBER);
+  tft.enableDisplay(true);
   Serial.print("Display Initialized!");
 }
