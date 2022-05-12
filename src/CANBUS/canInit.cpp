@@ -33,7 +33,15 @@ void initCanT4(void){
 
   //Every time there is a new message, sniff the packet
   can1.onReceive(MB0,canInterruptSniff);
-  can1.onReceive(canSniff);
+
+  can1.onReceive(MB1,canSniff);
+  can1.onReceive(MB2,canSniff);
+  can1.onReceive(MB3,canSniff);
+  can1.onReceive(MB4,canSniff);
+  can1.onReceive(MB5,canSniff);
+  can1.onReceive(MB6,canSniff);
+  can1.onReceive(MB7,canSniff);
+
   
   can1.setMBFilter(MB0, 0x1D6); // Hardware interrupt, steering wheel button
   can1.setMBFilter(MB1, 0x3B4); // Battery voltage and charge status
@@ -77,7 +85,7 @@ void readCanMessages(){
 void canInterruptSniff(const CAN_message_t &msgInt) {
   
   //parseCanInterruptedMessage(canMsg.id, canMsg.buf, canMsg.len);
-  /*
+  
   Serial.println("INTERRUPTSNIFF*********************************");
   
     Serial.print("INTERRUPTED CAN1 "); 
@@ -92,7 +100,8 @@ void canInterruptSniff(const CAN_message_t &msgInt) {
     Serial.print("  TS: "); Serial.println(msgInt.timestamp);
 
   Serial.println("END READ INTERRUPT CAN MSG");
-  */
+  
   parseCanInterruptedMessage(msgInt.id, msgInt.buf, msgInt.len);
+
 
 }

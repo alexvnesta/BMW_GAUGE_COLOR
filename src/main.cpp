@@ -16,7 +16,7 @@ void loop() {
   displayCurrentScreen();
   
   // PARSE CAN MESSAGES
-  can1.events(); //Need to check can events in buffer.
+  //can1.events(); //Need to check can events in buffer.
   readCanMessages();
 
   // CHECK FOR BUTTON INPUT

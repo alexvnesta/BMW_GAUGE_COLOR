@@ -1,6 +1,7 @@
 #include "sleep.hpp"
 #include "INITIALIZE/init.hpp"
 #include "CANBUS/canParse.hpp"
+#include "SCREENS/logoScreen.hpp"
 
 unsigned long snoozeTime = 0;
 bool snoozePin = HIGH;
@@ -38,6 +39,7 @@ void checkSnooze(void){
     snoozeTime = millis();
     // only reinitialize after sleep.
     if (sleepflag == 1){
+          _reboot_Teensyduino_();
           setup();
           tft.enableDisplay(true);
           analogWrite(9, 254);
@@ -46,6 +48,8 @@ void checkSnooze(void){
     if (sleepflag == 3 && ignition_status == 69){
           tft.enableDisplay(true);
           analogWrite(9, 254);
+          logoScreenTimer = millis();
+          sleepflag = 0;
     }
   }
 }

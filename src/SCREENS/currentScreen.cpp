@@ -38,9 +38,10 @@ void advanceScreen(){
 }
 
 void jumpMultiGauge(){
-    currentScreenSelected = 1;
+    currentScreenSelected = 0;
     tft.fillScreen(ST77XX_BLKAMBER);
     tft.setCursor(0,0);
+    logoScreenTimer = millis();
 }
 
 void resetScreen(){

@@ -5,6 +5,7 @@
 #include "../assets/images/bitmaps.h"
 #include "currentScreen.hpp"
 
+extern uint32_t logoScreenTimer;
 void displayLogoScreen(void);
 
 #endif
