@@ -3,7 +3,7 @@
 This is the latest revision of my gauges for my e90 BMW.  
 This version will feature a high-res color TFT display!  
 
-Here is the screen in action
+Here is the screen in action  
 ![](extra/IMG_0645.jpg?raw=true)  
 
 https://www.youtube.com/watch?v=a9Uzl_dyvq4  
